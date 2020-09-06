@@ -1,7 +1,5 @@
 package com.revature.services;
 
-import java.sql.Timestamp;
-import java.util.List;
 
 import com.revature.daos.IreimbursementDAO;
 import com.revature.daos.IroleDAO;
@@ -13,6 +11,7 @@ import com.revature.daos.roleDAO;
 import com.revature.daos.statusDAO;
 import com.revature.daos.typeDAO;
 import com.revature.daos.userDAO;
+
 import com.revature.models.Reimbursement;
 import com.revature.models.Role;
 import com.revature.models.Status;
@@ -27,22 +26,27 @@ public class ReimbursementService {
 	private static IstatusDAO sDAO = new statusDAO();
 	private static IuserDAO uDAO = new userDAO();
 	
+	Type typeInfo = new Type();
+	User userInfo = new User();
+	Role roleInfo = new Role();
+	Status statusInfo = new Status();
+	Reimbursement reimInfo = new Reimbursement();
 	
+
 	
 	public boolean addWebsiteInfo(WebsiteInfoDTO info) {
-		Reimbursement reimInfo;
-		Type typeInfo;
-		User userInfo;
-		Role roleInfo;
 		String statusString = "created";
-		Status statusInfo;
 		
-		if (info.getType() != null && info.getEmail() != null && info.getRole() != null) {
-			typeInfo = tDAO.getTypeByName(info.getType());
-			statusInfo = sDAO.getStatusByName(statusString);
-			userInfo = uDAO.getUserByEmail(info.getEmail());
-			roleInfo = rDAO.getRoleByName(info.getRole());
-			reimInfo = new Reimbursement(info.getAmount(), info.getDate(), info.getDescription(), userInfo, statusInfo, typeInfo);
+		if (info.type != null ) {
+			typeInfo.setType(info.type);
+			statusInfo.setStatus(statusString);
+			userInfo = uDAO.getUserByEmail(info.email);
+	        reimInfo.setAuthor(userInfo);
+			reimInfo = new Reimbursement(info.amount, info.date, info.description, userInfo, statusInfo, typeInfo);
+			System.out.println(reimInfo);
+			System.out.println(userInfo);
+			System.out.println(roleInfo);
+			
 			
 		} else {
 			reimInfo = null;
@@ -53,6 +57,10 @@ public class ReimbursementService {
 		
 		
 	}
+
+
+
+	
 	
 		
 }

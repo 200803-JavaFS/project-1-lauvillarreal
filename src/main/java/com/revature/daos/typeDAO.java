@@ -7,6 +7,7 @@ import org.hibernate.Session;
 
 
 import com.revature.models.Type;
+import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
 public class typeDAO implements ItypeDAO {
@@ -55,10 +56,11 @@ public class typeDAO implements ItypeDAO {
 
 	@Override
 	public Type getTypeByName(String name) {
-		Session ses = HibernateUtil.getSession();
-		Type t = ses.get(Type.class, name);
+		Session session = HibernateUtil.getSession();
 		
-		return t;
+		Type type = session.createQuery("FROM Type WHERE type='" + name + "'", Type.class).list().get(0);
+		return type;
+		
 	}
 
 }

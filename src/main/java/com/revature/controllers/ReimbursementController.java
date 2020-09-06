@@ -51,7 +51,7 @@ public class ReimbursementController {
 		
 		WebsiteInfoDTO info = om.readValue(body, WebsiteInfoDTO.class);
 		
-		System.out.println(info);
+		System.out.println("<3" + info + "<3");
 		
 		if (rs.addWebsiteInfo(info)) {
 			res.setStatus(201);

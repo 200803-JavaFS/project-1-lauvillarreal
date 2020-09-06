@@ -43,7 +43,7 @@ CREATE TABLE ers_reimbursement_type (
 );
 
 INSERT INTO ers_reimbursement (reim_amount, reim_submitted, reim_resolved, reim_description, reim_author_fk, reim_resolver_fk, reim_status_id_fk, reim_type_id_fk)
-	VALUES (100.00, '2016-06-22 19:10:25-07', '2016-06-22 20:10:25-07', 'description', 3, null, 1, 1);
+	VALUES (100.00, '2016-06-22 19:10:25-07', '2016-06-29 20:10:25-07', 'description', 3, null, 1, 1);
 
 INSERT INTO ers_reimbursement_status (reim_status) 
 VALUES ('approved');

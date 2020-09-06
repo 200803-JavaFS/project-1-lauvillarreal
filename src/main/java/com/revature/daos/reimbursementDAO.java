@@ -31,7 +31,7 @@ public class reimbursementDAO implements IreimbursementDAO {
 			ItypeDAO tDAO = new typeDAO();
 			IstatusDAO sDAO = new statusDAO();
 			sDAO.addStatus(reim.getStatus());
-			tDAO.addType(reim.getType());	
+			tDAO.addType(reim.getType());
 			uDAO2.addUser(reim.getAuthor());
 			if(reim.getResolver() != null) {
 			uDAO.getUserByUsername(reim.getResolver().getUsername());

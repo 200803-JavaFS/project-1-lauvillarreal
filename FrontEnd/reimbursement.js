@@ -13,6 +13,7 @@ async function loginFunc() {
         username: usern,
         password: userp
     }
+    
     //send object to server as POST
     let resp = await fetch(url + "login", {
         method: 'POST',
@@ -37,6 +38,7 @@ async function loginFunc() {
         button2.innerText = "Add a Ticket";
         button2.onclick = AddFunc;
         document.getElementById("formbtn").appendChild(button2);
+        
     } else {
         document.getElementById("login-row").innerText = "Login failed!";
     }
@@ -105,7 +107,8 @@ async function AddFunc(){
     let description = document.getElementById("description").value;
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
-    let emai = document.getElementById("email").value
+    let email = document.getElementById("email").value;
+    
   
 
     let reimbursement = {

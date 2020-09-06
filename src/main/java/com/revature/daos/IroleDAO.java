@@ -8,4 +8,5 @@ public interface IroleDAO {
 	public Role getRoleByID(int id);
 	public Role getRoleByName(String name);
 	public boolean updateRole(Role role);
+	boolean addRole(String role);
 }

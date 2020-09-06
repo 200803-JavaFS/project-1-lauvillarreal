@@ -22,6 +22,22 @@ public class roleDAO implements IroleDAO {
 		Session ses = HibernateUtil.getSession();
 		
 		try {
+			System.out.println(role);
+			ses.save(role);
+			return true;	
+	} catch (HibernateException e) {
+		log.info("Could not add Role");
+		e.printStackTrace();
+		return false;
+	}
+	}
+	
+	@Override
+	public boolean addRole(String role) {
+		Session ses = HibernateUtil.getSession();
+		
+		try {
+			System.out.println(role);
 			ses.save(role);
 			return true;	
 	} catch (HibernateException e) {

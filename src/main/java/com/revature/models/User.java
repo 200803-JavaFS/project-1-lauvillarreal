@@ -19,12 +19,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ers_users")
-public class User implements Serializable {
+public class User  extends LoginDTO {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ers_users_id", nullable=false)
@@ -51,17 +47,25 @@ public class User implements Serializable {
 	
 	public User() {
 	}
-
-	public User(String username, String password, String firstName, String lastName, String email, Role roleID, List<Reimbursement> authorList, List<Reimbursement> resolverList) {
+	public User(String firstName, String lastName, String email,
+			Role roleID) {
 		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.roleID = roleID;
+		this.username = super.getUsername();
+		this.password = super.getPassword();
+	}
+
+	public User(String username, String password, String firstName, String lastName, String email, Role roleID) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.roleID = roleID;
-		this.authorList = authorList;
-		this.resolverList = resolverList;
+
 	}
 
 	public User(int userID, String username, String password, String firstName, String lastName, String email,

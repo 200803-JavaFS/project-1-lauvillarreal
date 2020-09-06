@@ -10,14 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.daos.IuserDAO;
+import com.revature.daos.userDAO;
 import com.revature.models.LoginDTO;
 import com.revature.models.User;
 import com.revature.services.LoginService;
 
 public class LoginController {	
 	
+	LoginDTO u = new LoginDTO();
 	private static LoginService ls = new LoginService();
 	private static ObjectMapper om = new ObjectMapper();
+	IuserDAO uDAO = new userDAO();
 	
 	public void login(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
@@ -25,9 +29,13 @@ public class LoginController {
 
 			if(req.getParameterMap().containsKey("username") && req.getParameterMap().containsKey("password")) {
 
-				LoginDTO u = new LoginDTO();
+
 				u.setUsername(req.getParameter("username"));
 				u.setPassword(req.getParameter("password"));
+				System.out.println(u.getUsername() + "" + u.getPassword());
+				System.out.println(req.getParameter("username") + req.getParameter("password"));
+				System.out.println("get");
+				
 				
 				if(ls.login(u)) {
 					HttpSession session = req.getSession();
@@ -55,6 +63,10 @@ public class LoginController {
 			}
 			String body = new String(sb);
 			LoginDTO user = om.readValue(body, LoginDTO.class);
+			System.out.println(user);
+			System.out.println(user.getRole());
+
+			System.out.println("post");
 			if(ls.login(user)) {
 				HttpSession session = req.getSession();
 				session.setAttribute("user", 1);
