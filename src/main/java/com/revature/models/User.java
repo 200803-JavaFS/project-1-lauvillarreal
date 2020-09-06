@@ -60,8 +60,8 @@ public class User implements Serializable {
 		this.lastName = lastName;
 		this.email = email;
 		this.roleID = roleID;
-		//this.authorList = authorList;
-		//this.resolverList = resolverList;
+		this.authorList = authorList;
+		this.resolverList = resolverList;
 	}
 
 	public User(int userID, String username, String password, String firstName, String lastName, String email,

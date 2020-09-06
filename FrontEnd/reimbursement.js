@@ -41,20 +41,17 @@ async function loginFunc() {
         document.getElementById("login-row").innerText = "Login failed!";
     }
 }
-
+//Retrieve from database
 async function findAllFunc() {
 
     document.getElementById("reimbody").innerText ="";
-    
 
     let resp = await fetch(url + "manager", {
         method: 'GET',
         credentials: 'include',
     });
-    document.getElementById("table-row").innerText = "Fetch completed.";
 
     if (resp.status === 200) {
-        document.getElementById("table-row").innerText = "YOU HAVE RECEIVED RESPONSE.";
         let data = await resp.json();
         for (let reimbursement of data) {
             console.log(reimbursement);
@@ -75,26 +72,26 @@ async function findAllFunc() {
             cell5.innerHTML = reimbursement.reimDescription;
             row.appendChild(cell5);
             let cell6 = document.createElement("td");
-            cell6.innerHTML = reimbursement.reimReceipt;
+            cell6.innerHTML = reimbursement.author.firstName;
             row.appendChild(cell6);
             let cell7 = document.createElement("td");
-            cell7.innerHTML = reimbursement.reimAuthor;
+            cell7.innerHTML = reimbursement.status.status;
             row.appendChild(cell7);
             let cell8 = document.createElement("td");
-            cell8.innerHTML = reimbursement.reimStatus;
+            cell8.innerHTML = reimbursement.type.type;
             row.appendChild(cell8);
-            let cell10 = document.createElement("td");
-            cell10.innerHTML = reimbursement.reimType;
-            row.appendChild(cell10);
-            if (reimbursement.reimResolver != null) {
-                let cell9 = document.createElement("td");
-                cell9.innerHTML = reimbursement.reimResolver.reimResolver;
-                row.appendChild(cell9);
-            } else {
+            console.log(row);
+            if (reimbursement.resolver != null) {
+              let cell9 = document.createElement("td");
+              cell9.innerHTML = reimbursement.resolver.userID;
+              row.appendChild(cell9);
+           } else {
                 let cell9 = document.createElement("td");
                 row.appendChild(cell9);
-            }
-            document.getElementById("reimbody").appendChild(row);
+        }
+        
+        
+        document.getElementById("reimbody").appendChild(row);
         }
     }
 }
@@ -106,17 +103,17 @@ async function AddFunc(){
     let amount = document.getElementById("amount").value;
     let date = document.getElementById("date").value;
     let description = document.getElementById("description").value;
-    let fName = document.getElementById("firstName").value;
-    let lName = document.getElementById("lastName").value;
-    let emai = documnet.getElementById("email").value
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let emai = document.getElementById("email").value
   
 
     let reimbursement = {
         type : type,
         role : role,
         amount : amount,
-        firstName : fName,
-        lastName : lName,
+        firstName : firstName,
+        lastName : lastName,
         date : date,
         description : description,
         email :email

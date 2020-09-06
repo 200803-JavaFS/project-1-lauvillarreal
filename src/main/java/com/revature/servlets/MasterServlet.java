@@ -18,7 +18,7 @@ public class MasterServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static ReimbursementController ac = new ReimbursementController();
+	private static ReimbursementController rc = new ReimbursementController();
 	private static LoginController lc = new LoginController();
 
 	public MasterServlet() {
@@ -49,12 +49,13 @@ public class MasterServlet extends HttpServlet {
 					if (req.getMethod().equals("GET")) {
 						if (portions.length == 2) {
 							int id = Integer.parseInt(portions[1]);
-							ac.getReimbursement(res, id);
+							rc.getReimbursement(res, id);
 						} else if (portions.length == 1) {
-							ac.getAllReimbursements(res);
+							rc.getAllReimbursements(res);
 						}
 					} else if (req.getMethod().equals("POST")) {
-						ac.addReimbursement(req, res);
+						System.out.println("Successfully in POST");
+						rc.addReimbursement(req, res);
 					}
 					}
 				 else {
@@ -68,12 +69,12 @@ public class MasterServlet extends HttpServlet {
 					if (req.getMethod().equals("GET")) {
 						if (portions.length == 2) {
 							int id = Integer.parseInt(portions[1]);
-							ac.getReimbursement(res, id);
+							rc.getReimbursement(res, id);
 						} else if (portions.length == 1) {
-							ac.getAllReimbursements(res);
+							rc.getAllReimbursements(res);
 						}
 					} else if (req.getMethod().equals("POST")) {
-						ac.updateReimbursement();
+						rc.updateReimbursement();
 						
 					}
 				}

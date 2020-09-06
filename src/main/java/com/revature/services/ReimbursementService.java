@@ -35,15 +35,14 @@ public class ReimbursementService {
 		User userInfo;
 		Role roleInfo;
 		String statusString = "created";
-		Timestamp submitted;
 		Status statusInfo;
 		
-		if (info.type != null && info.email != null && info.role != null) {
-			typeInfo = tDAO.getTypeByName(info.type);
+		if (info.getType() != null && info.getEmail() != null && info.getRole() != null) {
+			typeInfo = tDAO.getTypeByName(info.getType());
 			statusInfo = sDAO.getStatusByName(statusString);
-			userInfo = uDAO.getUserByEmail(info.email);
-			roleInfo = rDAO.getRoleByName(info.role);
-			reimInfo = new Reimbursement(info.amount, info.date, info.description, userInfo, statusInfo, typeInfo);
+			userInfo = uDAO.getUserByEmail(info.getEmail());
+			roleInfo = rDAO.getRoleByName(info.getRole());
+			reimInfo = new Reimbursement(info.getAmount(), info.getDate(), info.getDescription(), userInfo, statusInfo, typeInfo);
 			
 		} else {
 			reimInfo = null;
