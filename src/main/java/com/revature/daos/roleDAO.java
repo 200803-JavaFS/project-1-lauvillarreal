@@ -50,5 +50,12 @@ public class roleDAO implements IroleDAO {
 		}
 		return false;
 	}
+	@Override
+	public Role getRoleByName(String name) {
+		Session session = HibernateUtil.getSession();
+		Role role = session.get(Role.class, name);
+				
+		return role;
+	}
 
 }

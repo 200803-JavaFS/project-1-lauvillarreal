@@ -2,6 +2,7 @@ package com.revature.services;
 
 
 import com.revature.daos.userDAO;
+import com.revature.models.LoginDTO;
 import com.revature.models.User;
 
 public class LoginService {	
@@ -9,10 +10,10 @@ public class LoginService {
 	User sqlUser= new User();
 	userDAO uDAO = new userDAO();
 	
-	public boolean login(User user) {
+	public boolean login(LoginDTO user) {
 
 
-		sqlUser = uDAO.getUserByUsername("username");
+		sqlUser = uDAO.getUserByUsername(user.getUsername());
 
 		if (user.getUsername().equals(sqlUser.getUsername())) {
 			if(user.getPassword().equals(sqlUser.getPassword())) {

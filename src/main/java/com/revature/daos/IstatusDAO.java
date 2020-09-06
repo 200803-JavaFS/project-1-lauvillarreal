@@ -8,4 +8,6 @@ public interface IstatusDAO {
 	public boolean addStatus(Status status);
 	public boolean updateStatus(Status status);
 	public Status getStatusById(int id);
+	public Status getStatusByName(String name);
+
 }

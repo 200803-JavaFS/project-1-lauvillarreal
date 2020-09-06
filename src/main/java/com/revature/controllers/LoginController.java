@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.models.LoginDTO;
 import com.revature.models.User;
 import com.revature.services.LoginService;
 
@@ -24,8 +25,8 @@ public class LoginController {
 
 			if(req.getParameterMap().containsKey("username") && req.getParameterMap().containsKey("password")) {
 
-				User u = new User();
-				u.setUsername(req.getParameter("userID"));
+				LoginDTO u = new LoginDTO();
+				u.setUsername(req.getParameter("username"));
 				u.setPassword(req.getParameter("password"));
 				
 				if(ls.login(u)) {
@@ -53,7 +54,7 @@ public class LoginController {
 				line = reader.readLine();
 			}
 			String body = new String(sb);
-			User user = om.readValue(body, User.class);
+			LoginDTO user = om.readValue(body, LoginDTO.class);
 			if(ls.login(user)) {
 				HttpSession session = req.getSession();
 				session.setAttribute("user", 1);

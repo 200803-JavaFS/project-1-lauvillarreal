@@ -29,19 +29,31 @@ CREATE TABLE ers_users (
 
 CREATE TABLE ers_user_roles (
 	ers_user_role_id SERIAL PRIMARY KEY,
-	user_role VARCHAR(10) NOT NULL
+	user_role VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE ers_reimbursement_status (
 	reim_status_id SERIAL PRIMARY KEY,
-	reim_status VARCHAR(10) NOT NULL
+	reim_status VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE ers_reimbursement_type (
 	reim_type_id SERIAL PRIMARY KEY,
-	reim_type VARCHAR(10) NOT NULL
+	reim_type VARCHAR(100) NOT NULL
 );
 
+INSERT INTO ers_reimbursement (reim_amount, reim_submitted, reim_resolved, reim_description, reim_author_fk, reim_resolver_fk, reim_status_id_fk, reim_type_id_fk)
+	VALUES (100.00, '2016-06-22 19:10:25-07', '2016-06-22 20:10:25-07', 'description', 3, null, 1, 1);
 
+INSERT INTO ers_reimbursement_status (reim_status) 
+VALUES ('approved');
 
+INSERT INTO ers_reimbursement_type (reim_type)
+VALUES ('certification');
+
+INSERT INTO ers_users (ers_username,ers_password, user_first_name, user_last_name, user_email, user_role_id_fk)
+VALUES ('lauvillarreal', 'password', 'lau', 'vill', 'lau@gmail.com', 1);
+
+INSERT INTO ers_user_roles (user_role)
+VALUES ('employee');
 

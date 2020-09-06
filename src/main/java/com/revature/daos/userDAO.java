@@ -38,7 +38,7 @@ public class userDAO implements IuserDAO {
 	public User getUserByUsername(String username) {
 		Session session = HibernateUtil.getSession();
 		
-		User user = session.get(User.class, username);
+		User user = session.createQuery("FROM User WHERE username='" + username + "'", User.class).list().get(0);
 		return user;
 	}
 	
@@ -54,4 +54,10 @@ public class userDAO implements IuserDAO {
 		}
 		return false;
 	}
+	@Override
+	public User getUserByEmail(String email) {
+		Session session = HibernateUtil.getSession();
+		
+		User user = session.get(User.class, email);
+		return user;	}
 }

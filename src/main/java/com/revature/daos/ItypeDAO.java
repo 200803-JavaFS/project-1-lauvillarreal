@@ -7,6 +7,7 @@ public interface ItypeDAO {
 	public boolean addType(Type type);
 	public boolean updateType(Type type);
 	public Type getTypeByID(int id);
+	public Type getTypeByName(String name);
 }
 
 

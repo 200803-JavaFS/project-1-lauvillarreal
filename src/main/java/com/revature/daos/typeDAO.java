@@ -53,4 +53,12 @@ public class typeDAO implements ItypeDAO {
 		return type;
 	}
 
+	@Override
+	public Type getTypeByName(String name) {
+		Session ses = HibernateUtil.getSession();
+		Type t = ses.get(Type.class, name);
+		
+		return t;
+	}
+
 }

@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.controllers.LoginController;
 //import com.revature.models.User;
+import com.revature.controllers.ReimbursementController;
 
 public class MasterServlet extends HttpServlet {
 
 	
 	private static final long serialVersionUID = 1L;
-	//private static AvengerController ac = new AvengerController();
+	
+	private static ReimbursementController ac = new ReimbursementController();
 	private static LoginController lc = new LoginController();
 
 	public MasterServlet() {
@@ -32,9 +34,9 @@ public class MasterServlet extends HttpServlet {
 		// will override for success requests.
 		res.setStatus(404);
 
-		final String URI = req.getRequestURI().replace("/fluffybunnies/", "");
+		final String URI = req.getRequestURI().replace("/reimbursement/", "");
 
-		// example URI = avenger/1 to get avenger with ID 1
+		
 
 		String[] portions = URI.split("/");
 
@@ -42,24 +44,44 @@ public class MasterServlet extends HttpServlet {
 
 		try {
 			switch (portions[0]) {
-			case "avenger":
-				//if (req.getSession(false) != null && (boolean) req.getSession().getAttribute("loggedin")) {
+			case "employee":
+				if (req.getSession(false) != null && (boolean) req.getSession().getAttribute("loggedin")) {
 					if (req.getMethod().equals("GET")) {
 						if (portions.length == 2) {
 							int id = Integer.parseInt(portions[1]);
-							//ac.getAvenger(res, id);
+							ac.getReimbursement(res, id);
 						} else if (portions.length == 1) {
-							//ac.getAllAvengers(res);
+							ac.getAllReimbursements(res);
 						}
 					} else if (req.getMethod().equals("POST")) {
-						//ac.addAvenger(req, res);
-						
+						ac.addReimbursement(req, res);
+					}
 					}
 				 else {
 					res.setStatus(403);
 					res.getWriter().println("You must be logged in to do that!");
+				
 				}
-			
+				break;
+			case "manager":
+				if (req.getSession(false) != null && (boolean) req.getSession().getAttribute("loggedin")) {
+					if (req.getMethod().equals("GET")) {
+						if (portions.length == 2) {
+							int id = Integer.parseInt(portions[1]);
+							ac.getReimbursement(res, id);
+						} else if (portions.length == 1) {
+							ac.getAllReimbursements(res);
+						}
+					} else if (req.getMethod().equals("POST")) {
+						ac.updateReimbursement();
+						
+					}
+				}
+				 else {
+					res.setStatus(403);
+					res.getWriter().println("You must be logged in to do that!");
+				}
+				
 				break;
 			case "login":
 				lc.login(req, res);
@@ -72,6 +94,7 @@ public class MasterServlet extends HttpServlet {
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 			res.getWriter().print("The id you provided is not an integer");
+			System.out.println("error in switch statement");
 			res.setStatus(400);
 		}
 

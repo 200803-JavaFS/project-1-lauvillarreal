@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,14 +14,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ers_reimbursement_type")
-public class Type {
+public class Type implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="reim_type_id", nullable=false)
 	private int typeID;
 	@Column(name="reim_type", nullable=false)
 	private String type;
-	@OneToMany(mappedBy="reimType", fetch=FetchType.EAGER)
+	
+	
+	@OneToMany(mappedBy="reimType", fetch=FetchType.LAZY)
 	private List<Reimbursement> typeList;
 	
 	public Type() {

@@ -52,4 +52,13 @@ public class statusDAO implements IstatusDAO {
 		return status;
 	}
 
+	@Override
+	public Status getStatusByName(String name) {
+		Session ses = HibernateUtil.getSession();
+		
+		Status s = ses.get(Status.class, name);
+		
+		return s;
+	}
+
 }

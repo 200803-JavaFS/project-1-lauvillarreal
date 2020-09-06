@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
@@ -13,9 +14,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
+
 @Entity
 @Table(name="ers_reimbursement")
-public class Reimbursement {
+public class Reimbursement implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="reim_id", nullable=false)
@@ -26,21 +35,53 @@ public class Reimbursement {
 	private Timestamp reimSubmitted;
 	@Column(name="reim_resolved")
 	private Timestamp reimResolved;
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@Column(name= "reim_description")
+	private String reimDescription;
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="reim_author_fk", nullable=false)
 	private User reimAuthor;
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="reim_resolver_fk")
 	private User reimResolver;
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="reim_status_id_fk", nullable=false)
 	private Status reimStatus;
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="reim_type_id_fk", nullable=false)
 	private Type reimType;
 	
 
 	public Reimbursement() {
+	}
+
+	
+	public Reimbursement(double reimAmount, Timestamp reimSubmitted, String reimDescription, User reimAuthor,
+			Status reimStatus, Type reimType) {
+		super();
+		this.reimAmount = reimAmount;
+		this.reimSubmitted = reimSubmitted;
+		this.reimDescription = reimDescription;
+		this.reimAuthor = reimAuthor;
+		this.reimStatus = reimStatus;
+		this.reimType = reimType;
+	}
+
+
+	public Reimbursement(double reimAmount, Timestamp reimSubmitted, Timestamp reimResolved, String reimDescription,
+			User reimAuthor, User reimResolver, Status reimStatus, Type reimType) {
+		super();
+		this.reimAmount = reimAmount;
+		this.reimSubmitted = reimSubmitted;
+		this.reimResolved = reimResolved;
+		this.reimDescription = reimDescription;
+		this.reimAuthor = reimAuthor;
+		this.reimResolver = reimResolver;
+		this.reimStatus = reimStatus;
+		this.reimType = reimType;
 	}
 
 
@@ -57,7 +98,7 @@ public class Reimbursement {
 		reimType = type;
 	}
 
-
+	
 	public int getReimID() {
 		return reimID;
 	}

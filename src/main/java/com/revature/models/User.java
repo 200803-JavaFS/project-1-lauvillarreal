@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,10 +16,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+
 @Entity
 @Table(name="ers_users")
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ers_users_id", nullable=false)
@@ -33,12 +39,14 @@ public class User {
 	private String lastName;
 	@Column(name="user_email", nullable=false, unique=true)
 	private String email;
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="user_role_id_fk", nullable=false)
 	private Role roleID;
-	@OneToMany(mappedBy="reimAuthor", fetch=FetchType.EAGER)
+	
+	@OneToMany(mappedBy="reimAuthor", fetch=FetchType.LAZY)
 	private List<Reimbursement> authorList;
-	@OneToMany(mappedBy="reimResolver", fetch=FetchType.EAGER)
+	
+	@OneToMany(mappedBy="reimResolver", fetch=FetchType.LAZY)
 	private List<Reimbursement> resolverList;
 	
 	public User() {
@@ -52,8 +60,8 @@ public class User {
 		this.lastName = lastName;
 		this.email = email;
 		this.roleID = roleID;
-		this.authorList = authorList;
-		this.resolverList = resolverList;
+		//this.authorList = authorList;
+		//this.resolverList = resolverList;
 	}
 
 	public User(int userID, String username, String password, String firstName, String lastName, String email,
