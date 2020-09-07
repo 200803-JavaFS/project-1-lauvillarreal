@@ -11,8 +11,9 @@ import com.revature.daos.roleDAO;
 import com.revature.daos.statusDAO;
 import com.revature.daos.typeDAO;
 import com.revature.daos.userDAO;
-
+import com.revature.models.LoginDTO;
 import com.revature.models.Reimbursement;
+import com.revature.models.ResolvedDTO;
 import com.revature.models.Role;
 import com.revature.models.Status;
 import com.revature.models.Type;
@@ -54,8 +55,17 @@ public class ReimbursementService {
 			return false;
 		}
 		return reimDAO.addReimbursementTicket(reimInfo);
+	
 		
-		
+	}
+
+
+
+	public boolean addResolvedInfo(ResolvedDTO info, LoginDTO user) {
+		if(reimDAO.addResolved(info, user)) {
+			return true;
+		}
+		return false;
 	}
 
 

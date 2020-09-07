@@ -9,8 +9,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.daos.IuserDAO;
+import com.revature.daos.reimbursementDAO;
 import com.revature.daos.userDAO;
 import com.revature.models.LoginDTO;
 import com.revature.models.User;
@@ -21,9 +26,10 @@ public class LoginController {
 	LoginDTO u = new LoginDTO();
 	private static LoginService ls = new LoginService();
 	private static ObjectMapper om = new ObjectMapper();
+	private static final Logger log = LogManager.getLogger(LoginController.class);
 	IuserDAO uDAO = new userDAO();
 	
-	public void login(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public void login(HttpServletRequest req, HttpServletResponse res,LoginDTO user) throws ServletException, IOException {
 
 		if(req.getMethod().equals("GET")) {
 
@@ -54,15 +60,7 @@ public class LoginController {
 			}
 		}else if(req.getMethod().equals("POST")) {
 			
-			BufferedReader reader = req.getReader();
-			StringBuilder sb = new StringBuilder();
-			String line = reader.readLine();
-			while(line != null) {
-				sb.append(line);
-				line = reader.readLine();
-			}
-			String body = new String(sb);
-			LoginDTO user = om.readValue(body, LoginDTO.class);
+
 			System.out.println(user);
 			System.out.println(user.getRole());
 

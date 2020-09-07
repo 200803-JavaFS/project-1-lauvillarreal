@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.models.Status;
+import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
 public class statusDAO implements IstatusDAO {
@@ -45,11 +46,11 @@ public class statusDAO implements IstatusDAO {
 
 
 	@Override
-	public Status getStatusById(int id) {
+	public Status getStatusByStatusString(String status) {
 		Session session = HibernateUtil.getSession();
-		Status status = session.get(Status.class, id);
+		Status status2 = session.createQuery("FROM Status WHERE status='" + status + "'", Status.class).list().get(0);
 				
-		return status;
+		return status2;
 	}
 
 	@Override

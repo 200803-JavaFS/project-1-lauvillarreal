@@ -20,7 +20,7 @@ async function findAllFunc() {
 
     document.getElementById("reimbody").innerText ="";
 
-    let resp = await fetch(url + "manager", {
+    let resp = await fetch(url + "employee", {
         method: 'GET',
         credentials: 'include',
     });
@@ -57,7 +57,7 @@ async function findAllFunc() {
             console.log(row);
             if (reimbursement.resolver != null) {
               let cell9 = document.createElement("td");
-              cell9.innerHTML = reimbursement.resolver.userID;
+              cell9.innerHTML = reimbursement.resolver.firstName;
               row.appendChild(cell9);
            } else {
                 let cell9 = document.createElement("td");

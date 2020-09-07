@@ -64,3 +64,64 @@
 2020-09-06 23:08:14 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
 2020-09-06 23:08:20 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
 2020-09-06 23:12:10 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-07 00:45:14 INFO  reimbursementDAO:66 - Viewing all reimbursement tickets
+2020-09-07 02:12:10 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:12:10 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:13:42 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:13:42 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:15:06 INFO  reimbursementDAO:48 - A resolver has not yet been added
+2020-09-07 02:15:06 INFO  reimbursementDAO:52 - Added reimbursement
+2020-09-07 02:15:06 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:15:06 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:24:54 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:24:54 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:24:56 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:24:56 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:25:02 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:25:02 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:25:49 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:25:49 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:31:11 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:31:11 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:31:16 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:31:16 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:36:30 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:36:30 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:36:38 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 02:36:38 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 02:44:45 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:45:30 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:45:33 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:47:39 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:49:07 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:49:23 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:49:50 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:49:54 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:53:43 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 02:55:12 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:03:01 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:06:10 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:08:26 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:18:00 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:20:23 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:23:49 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:24:11 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:24:20 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:26:44 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:31:30 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:32:51 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:35:36 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:35:52 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:42:03 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:48:13 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:48:34 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:48:46 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:57:11 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:57:29 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:57:49 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
+2020-09-07 03:57:56 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 03:57:56 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 03:58:02 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 03:58:02 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 03:58:21 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 03:58:21 INFO  ReimbursementController:105 - rc view all tickets By username

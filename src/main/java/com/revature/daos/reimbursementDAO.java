@@ -3,19 +3,28 @@ package com.revature.daos;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import java.sql.Timestamp;
 import java.util.List;
+
+
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.revature.models.LoginDTO;
 import com.revature.models.Reimbursement;
+import com.revature.models.ResolvedDTO;
+import com.revature.models.Status;
+import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
 public class reimbursementDAO implements IreimbursementDAO {
 	
 	private static final Logger log = LogManager.getLogger(reimbursementDAO.class);
-
+	IstatusDAO sDAO = new statusDAO();
+	IuserDAO uDAO = new userDAO();
 	public reimbursementDAO() {
 		super();
 	}
@@ -82,6 +91,46 @@ public class reimbursementDAO implements IreimbursementDAO {
 			return false;
 		}
 		
+	}
+
+
+	@Override
+	public List<Reimbursement> viewAllTicketsByUsername(String username) {
+		Session session = HibernateUtil.getSession();
+		User user = uDAO.getUserByUsername(username);
+		
+		List<Reimbursement> list = session.createQuery("FROM Reimbursement WHERE reimAuthor = '" + user.getUserID() + "'", Reimbursement.class).list();
+
+		log.info("Viewing all reimbursement tickets");
+		System.out.println(list + " ");
+		return list;
+	}
+
+	@Override
+	public boolean addResolved(ResolvedDTO info,  LoginDTO user) {
+		Reimbursement reim = viewPendingTicketByID(info.id);
+		System.out.println("yeahhh reim"+ reim );
+		Session session = HibernateUtil.getSession();
+		//Timestamp time = new Timestamp(System.currentTimeMillis());
+		Status status = sDAO.getStatusByStatusString(info.status);
+		User resolver = uDAO.getUserByUsername(user.getUsername());
+		reim.setStatus(status);
+		reim.setResolver(resolver);
+		reim.setReimResolved(info.date);
+;
+		try {
+			session.merge(reim);
+//			ses.createQuery("UPDATE Reimbursement SET reimResolved = '" + info.date + "' WHERE reimID = '" + info.id + "'");
+//			ses.createQuery("UPDATE Reimbursement SET reimStatus = '" + status.getStatusID()+ "' WHERE reimID = '" + info.id + "'");
+//			ses.createQuery("UPDATE Reimbursement SET reimResolver = '" + resolver.getUserID() + "' WHERE reimID = '" + info.id + "'");
+//			System.out.println("yyeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//			
+			
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

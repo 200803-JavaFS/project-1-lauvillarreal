@@ -9,8 +9,8 @@
  let button2 = document.createElement('button');
  button2.className = "btn btn-primary";
  button2.id = "addReimBtn";
- button2.innerText = "View Pending";
- button2.onclick = AddFunc;
+ button2.innerText = "Approve Ticket";
+ button2.onclick = approveFunc;
  document.getElementById("formbtn").appendChild(button2);
 
 
@@ -56,7 +56,7 @@ if (resp.status === 200) {
      console.log(row);
      if (reimbursement.resolver != null) {
        let cell9 = document.createElement("td");
-       cell9.innerHTML = reimbursement.resolver.userID;
+       cell9.innerHTML = reimbursement.resolver.firstName;
        row.appendChild(cell9);
     } else {
          let cell9 = document.createElement("td");
@@ -69,35 +69,28 @@ if (resp.status === 200) {
 }
 }
 
-async function AddFunc(){
+async function approveFunc(){
 //adding to database
-let type = document.getElementById("type").value;
-let role = document.getElementById("role").value;
-let amount = document.getElementById("amount").value;
+
 let date = document.getElementById("date").value;
-let description = document.getElementById("description").value;
-let firstName = document.getElementById("firstName").value;
-let lastName = document.getElementById("lastName").value;
-let email = document.getElementById("email").value;
+let status = document.getElementById("status").value;
+let id = document.getElementById("ID").value;
 
 
 
-let reimbursement = {
- type : type,
- role : role,
- amount : amount,
- firstName : firstName,
- lastName : lastName,
+
+let managerApproval = {
  date : date,
- description : description,
- email :email
+ status : status,
+ id : id,
+
 }
 
-console.log(reimbursement)
+console.log(managerApproval)
 
-let resp = await fetch(url + "employee", {
+let resp = await fetch(url + "manager", {
  method: 'POST',
- body: JSON.stringify(reimbursement),
+ body: JSON.stringify(managerApproval),
  credentials: "include"
 })
 
