@@ -84,21 +84,23 @@ public class Reimbursement implements Serializable {
 		this.reimType = reimType;
 	}
 
-
-	public Reimbursement(int reimID, double reimAmount, Timestamp reimSubmitted, Timestamp reimResolved, User author,
-			User resolver, com.revature.models.Status status, com.revature.models.Type type) {
+	
+	
+	public Reimbursement(int reimID, double reimAmount, Timestamp reimSubmitted, Timestamp reimResolved,
+			String reimDescription, User reimAuthor, User reimResolver, Status reimStatus, Type reimType) {
 		super();
 		this.reimID = reimID;
 		this.reimAmount = reimAmount;
 		this.reimSubmitted = reimSubmitted;
 		this.reimResolved = reimResolved;
-		reimAuthor = author;
-		reimResolver = resolver;
-		reimStatus = status;
-		reimType = type;
+		this.reimDescription = reimDescription;
+		this.reimAuthor = reimAuthor;
+		this.reimResolver = reimResolver;
+		this.reimStatus = reimStatus;
+		this.reimType = reimType;
 	}
 
-	
+
 	public int getReimID() {
 		return reimID;
 	}
@@ -178,6 +180,19 @@ public class Reimbursement implements Serializable {
 		reimType = type;
 	}
 
+	
+
+	public String getReimDescription() {
+		return reimDescription;
+	}
+
+
+	public void setReimDescription(String reimDescription) {
+		this.reimDescription = reimDescription;
+	}
+
+
+	
 
 	@Override
 	public int hashCode() {
@@ -187,6 +202,7 @@ public class Reimbursement implements Serializable {
 		temp = Double.doubleToLongBits(reimAmount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((reimAuthor == null) ? 0 : reimAuthor.hashCode());
+		result = prime * result + ((reimDescription == null) ? 0 : reimDescription.hashCode());
 		result = prime * result + reimID;
 		result = prime * result + ((reimResolved == null) ? 0 : reimResolved.hashCode());
 		result = prime * result + ((reimResolver == null) ? 0 : reimResolver.hashCode());
@@ -212,6 +228,11 @@ public class Reimbursement implements Serializable {
 			if (other.reimAuthor != null)
 				return false;
 		} else if (!reimAuthor.equals(other.reimAuthor))
+			return false;
+		if (reimDescription == null) {
+			if (other.reimDescription != null)
+				return false;
+		} else if (!reimDescription.equals(other.reimDescription))
 			return false;
 		if (reimID != other.reimID)
 			return false;
@@ -247,9 +268,12 @@ public class Reimbursement implements Serializable {
 	@Override
 	public String toString() {
 		return "Reimbursement [reimID=" + reimID + ", reimAmount=" + reimAmount + ", reimSubmitted=" + reimSubmitted
-				+ ", reimResolved=" + reimResolved + ", reimAuthor=" + reimAuthor + ", reimResolver=" + reimResolver
-				+ ", reimStatus=" + reimStatus + ", reimType=" + reimType + "]";
+				+ ", reimResolved=" + reimResolved + ", reimDescription=" + reimDescription + ", reimAuthor="
+				+ reimAuthor + ", reimResolver=" + reimResolver + ", reimStatus=" + reimStatus + ", reimType="
+				+ reimType + "]";
 	}
+
+
 
 
 	

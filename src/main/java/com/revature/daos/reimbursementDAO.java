@@ -40,6 +40,7 @@ public class reimbursementDAO implements IreimbursementDAO {
 			}
 			
 			session.saveOrUpdate(reim);
+			log.info("Added reimbursement");
 			tx.commit();
 			return true;
 		} catch (HibernateException e) {
@@ -55,6 +56,9 @@ public class reimbursementDAO implements IreimbursementDAO {
 		Session session = HibernateUtil.getSession();
 		
 		List<Reimbursement> list = session.createQuery("FROM Reimbursement").list();
+		
+		log.info("Viewing all reimbursement tickets");
+		System.out.println(list + " ");
 		return list;
 	}
 

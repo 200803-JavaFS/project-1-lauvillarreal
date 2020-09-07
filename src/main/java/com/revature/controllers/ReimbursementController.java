@@ -28,6 +28,8 @@ public class ReimbursementController {
 
 	public void getAllReimbursements(HttpServletResponse res) throws IOException{
 		List<Reimbursement> all = reimDAO.viewAllTickets();
+		System.out.println("rc view all tickets");
+		System.out.println(all);
 		res.getWriter().println(om.writeValueAsString(all));
 		res.setStatus(200);
 		

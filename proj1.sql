@@ -52,8 +52,8 @@ INSERT INTO ers_reimbursement_type (reim_type)
 VALUES ('certification');
 
 INSERT INTO ers_users (ers_username,ers_password, user_first_name, user_last_name, user_email, user_role_id_fk)
-VALUES ('lauvillarreal', 'password', 'lau', 'vill', 'lau@gmail.com', 1);
+VALUES ('joey', 'cart', 'joe', 'cartin', 'joe@gmail.com', 17);
 
 INSERT INTO ers_user_roles (user_role)
-VALUES ('employee');
+VALUES ('manager');
 

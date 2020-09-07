@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reimbursement Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body  {
+          background-image: url("city.JPG");
+          background-color: #cccccc;
+        }
+        </style>
+</head>
+
+<style>
+    .content {
+      max-width: 700px;
+      margin: auto;
+    }
+    
+    </style>
+
+<body style="background-color:rgba(157, 188, 218, 0.445);" >
+    <div class="content">
+        <h2> Manager Portal </h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <!-- will add from javascript here -->
+        <h3 class="cl">Reimbursement Tickets</h3>
+        <br>
+        <div class="row1" id="table-row">
+            <table class="table-hover table-bordered" id="reimtable">
+                <thead>
+                    <tr>
+                        <th>Reimbursement ID</th>
+                        <th>Amount</th>
+                        <th>Submitted</th>
+                        <th>Resolved</th>
+                        <th>Description</th> 
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Type</th>
+                        <th>Resolver</th> 
+                    </tr>
+                </thead>
+                <tbody id="reimbody">
+                </tbody>
+            </table>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <h3 class="cl">View Pending Requests</h3>
+        <div class="row1" id="formbtn"></div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>
+    <script src="reimbursement.js"></script>
+    <script src="manager.js"></script>
+
+</div>
+</body>
+</html>

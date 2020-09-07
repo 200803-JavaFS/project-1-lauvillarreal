@@ -44,3 +44,23 @@
 2020-09-06 00:31:33 INFO  reimbursementDAO:39 - A resolver has not yet been added
 2020-09-06 00:31:33 INFO  reimbursementDAO:46 - Cannot add Reimbursement Ticket
 2020-09-06 02:23:12 INFO  reimbursementDAO:39 - A resolver has not yet been added
+2020-09-06 16:19:57 INFO  reimbursementDAO:39 - A resolver has not yet been added
+2020-09-06 16:50:04 INFO  reimbursementDAO:59 - Viewing all reimbursement tickets
+2020-09-06 16:53:04 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 17:07:08 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 18:48:18 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 21:26:57 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:09:22 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:24:31 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:43:38 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:44:36 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:45:38 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:46:00 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:49:31 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:49:36 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:51:09 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 22:55:46 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 23:04:01 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 23:08:14 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 23:08:20 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
+2020-09-06 23:12:10 INFO  reimbursementDAO:60 - Viewing all reimbursement tickets
