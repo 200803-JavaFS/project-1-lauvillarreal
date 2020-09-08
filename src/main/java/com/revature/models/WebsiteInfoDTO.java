@@ -22,6 +22,7 @@ public class WebsiteInfoDTO extends LoginDTO{
 	public WebsiteInfoDTO() {
 		super();
 	}
+	
 	public WebsiteInfoDTO(String type, double amount, Timestamp date, String description) {
 		super();
 		this.type = type;

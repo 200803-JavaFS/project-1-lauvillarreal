@@ -125,3 +125,8 @@
 2020-09-07 03:58:02 INFO  ReimbursementController:105 - rc view all tickets By username
 2020-09-07 03:58:21 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
 2020-09-07 03:58:21 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 21:39:35 INFO  reimbursementDAO:48 - A resolver has not yet been added
+2020-09-07 21:39:35 INFO  reimbursementDAO:52 - Added reimbursement
+2020-09-07 21:39:36 INFO  reimbursementDAO:104 - Viewing all reimbursement tickets
+2020-09-07 21:39:36 INFO  ReimbursementController:105 - rc view all tickets By username
+2020-09-07 23:05:16 INFO  reimbursementDAO:69 - Viewing all reimbursement tickets
